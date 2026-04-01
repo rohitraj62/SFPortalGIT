@@ -1,0 +1,30 @@
+<template>
+    <div class="home-container">
+        <img src={CC_HomeBanner} alt="Home Banner" class="banner" />
+    </div>
+    
+    <div class="cases-section">
+        <h2 class="section-title">Your Recent Cases</h2>
+        
+        <template if:true={data}>
+            <lightning-datatable 
+                key-field="Id" 
+                columns={columns} 
+                data={data} 
+                hide-checkbox-column>
+            </lightning-datatable>
+        </template>
+        
+        <template if:true={error}>
+            <div class="error-message">
+                Error loading cases: {error.body.message}
+            </div>
+        </template>
+        
+        <template if:false={data}>
+            <div class="no-cases">
+                No recent cases found.
+            </div>
+        </template>
+    </div>
+</template>

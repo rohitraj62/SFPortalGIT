@@ -1,0 +1,84 @@
+<template>
+    <div class="self-help-container">
+        <template if:false={selectedArticle}>
+            <h2 class="section-title">Self Help</h2>
+            
+            <div class="search-section">
+                <lightning-input
+                    type="search"
+                    label="Search Knowledge Articles"
+                    value={searchTerm}
+                    onchange={handleSearchChange}
+                    placeholder="Search for help articles...">
+                </lightning-input>
+            </div>
+            
+            <template if:true={articles.length}>
+                <div class="articles-grid">
+                    <template for:each={articles} for:item="article">
+                        <div key={article.Id} class="article-card" onclick={handleArticleClick} data-id={article.Id}>
+                            <lightning-card>
+                                <div class="slds-p-around_medium">
+                                    <h3 class="article-title">{article.Title}</h3>
+                                    <p class="article-summary">{article.Summary}</p>
+                                    <div class="article-meta">
+                                        <span class="article-number">Article: {article.ArticleNumber}</span>
+                                        <span class="article-date">
+                                            Published: {article.LastPublishedDate}
+                                        </span>
+                                    </div>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            
+            <template if:true={error}>
+                <div class="error-message">
+                    Error loading articles: {error.body.message}
+                </div>
+            </template>
+            
+            <template if:false={articles.length}>
+                <template if:false={error}>
+                    <div class="no-articles-message">
+                        No knowledge articles found.
+                    </div>
+                </template>
+            </template>
+        </template>
+        
+        <template if:true={selectedArticle}>
+            <div class="article-detail">
+                <lightning-button
+                    variant="neutral"
+                    label="← Back to Articles"
+                    onclick={handleBackClick}
+                    class="slds-m-bottom_medium">
+                </lightning-button>
+                
+                <h2 class="article-detail-title">{selectedArticle.Title}</h2>
+                <div class="article-detail-meta">
+                    <span>Article: {selectedArticle.ArticleNumber}</span>
+                    <span>Published: {selectedArticle.LastPublishedDate}</span>
+                </div>
+                
+                <div class="article-content">
+                    <p><strong>Summary:</strong> {selectedArticle.Summary}</p>
+                    <div class="article-qa">
+                        <h3>Questions & Answers</h3>
+                        <div class="qa-item">
+                            <p><strong>Q: How do I get started?</strong></p>
+                            <p>A: Follow the step-by-step instructions in the summary above.</p>
+                        </div>
+                        <div class="qa-item">
+                            <p><strong>Q: What if I need additional help?</strong></p>
+                            <p>A: Contact our support team or create a new case for personalized assistance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <div class="main-container">
+        <template if:true={showLogin}>
+            <c-login-register></c-login-register>
+        </template>
+        
+        <template if:true={isLoggedIn}>
+            <c-header onnavigate={handleNavigation}></c-header>
+            
+            <template if:true={showHome}>
+                <c-home-page></c-home-page>
+            </template>
+            
+            <template if:true={showMyCases}>
+                <c-my-cases></c-my-cases>
+            </template>
+            
+            <template if:true={showCreateCase}>
+                <c-case-form oncancel={handleCancelForm}></c-case-form>
+            </template>
+            
+            <template if:true={showSelfHelp}>
+                <div class="self-help-placeholder">
+                    <h2>Self Help</h2>
+                    <p>Self Help content coming soon...</p>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

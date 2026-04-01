@@ -1,0 +1,36 @@
+.my-cases-container {
+    padding: 1rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.filter-section {
+    margin-bottom: 1rem;
+}
+
+.pagination-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.page-info {
+    font-weight: 500;
+    color: #333;
+}
+
+.error-message {
+    color: #d32f2f;
+    padding: 1rem;
+    background-color: #ffebee;
+    border-radius: 4px;
+    margin: 1rem 0;
+}

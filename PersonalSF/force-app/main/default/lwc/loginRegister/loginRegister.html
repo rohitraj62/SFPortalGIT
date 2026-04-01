@@ -1,0 +1,78 @@
+<template>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2 class="auth-title">{authTitle}</h2>
+            
+            <template if:true={showLogin}>
+                <div class="form-section">
+                    <lightning-input
+                        label="Username"
+                        value={username}
+                        onchange={handleUsernameChange}>
+                    </lightning-input>
+                    
+                    <lightning-input
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onchange={handlePasswordChange}>
+                    </lightning-input>
+                    
+                    <lightning-button
+                        variant="brand"
+                        label="Login"
+                        onclick={handleLogin}
+                        class="auth-button">
+                    </lightning-button>
+                    
+                    <p class="switch-text">
+                        Don't have an account? 
+                        <a href="#" onclick={switchToRegister}>Register here</a>
+                    </p>
+                </div>
+            </template>
+            
+            <template if:true={showRegister}>
+                <div class="form-section">
+                    <lightning-input
+                        label="First Name"
+                        value={firstName}
+                        onchange={handleFirstNameChange}>
+                    </lightning-input>
+                    
+                    <lightning-input
+                        label="Last Name"
+                        value={lastName}
+                        onchange={handleLastNameChange}>
+                    </lightning-input>
+                    
+                    <lightning-input
+                        label="Email"
+                        type="email"
+                        value={email}
+                        onchange={handleEmailChange}>
+                    </lightning-input>
+                    
+                    <lightning-input
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onchange={handlePasswordChange}>
+                    </lightning-input>
+                    
+                    <lightning-button
+                        variant="brand"
+                        label="Register"
+                        onclick={handleRegister}
+                        class="auth-button">
+                    </lightning-button>
+                    
+                    <p class="switch-text">
+                        Already have an account? 
+                        <a href="#" onclick={switchToLogin}>Login here</a>
+                    </p>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

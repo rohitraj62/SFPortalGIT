@@ -1,0 +1,31 @@
+<template>
+    <div class="my-cases-container">
+        <h2 class="section-title">My Cases</h2>
+        
+        <template if:true={data.length}>
+            <lightning-datatable
+                key-field="Id"
+                columns={columns}
+                data={data}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection}
+                onsort={handleSort}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </template>
+
+        <template if:true={error}>
+            <div class="error-message">
+                Error loading cases: {error.body.message}
+            </div>
+        </template>
+        
+        <template if:false={data.length}>
+            <template if:false={error}>
+                <div class="no-cases-message">
+                    No cases found.
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

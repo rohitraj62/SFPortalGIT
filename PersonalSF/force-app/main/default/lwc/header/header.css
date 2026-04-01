@@ -1,0 +1,100 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    height: 64px;
+    padding: 0 16px;
+}
+
+/* LEFT */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 48px;
+}
+
+/* CENTER */
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: 24px;
+    flex-grow: 1;
+}
+
+.nav-item {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 8px;
+}
+
+.nav-item:hover {
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* RIGHT */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.logout-btn {
+    --slds-c-button-neutral-color-background: transparent;
+    --slds-c-button-neutral-color-border: #ffffff;
+    --slds-c-button-neutral-text-color: #ffffff;
+}

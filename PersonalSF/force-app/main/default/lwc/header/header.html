@@ -1,0 +1,38 @@
+<template>
+    <header class="header">
+        <!-- Left: Logo -->
+        <div class="header-left">
+            <img src={CC_Logo} alt="Company Logo" class="logo" />
+        </div>
+
+        <!-- Center: Navigation -->
+        <nav class="header-center">
+            <span class="nav-item" onclick={goHome}>Home</span>
+            
+            <div class="dropdown">
+                <span class="nav-item dropdown-toggle" onclick={toggleCasesDropdown}>
+                    Cases ▼
+                </span>
+                <div class={casesDropdownClass}>
+                    <span class="dropdown-item" onclick={goMyCases}>My Cases</span>
+                    <span class="dropdown-item" onclick={goCreateCase}>Create Case</span>
+                </div>
+            </div>
+            
+            <span class="nav-item" onclick={goSelfHelp}>Self Help</span>
+        </nav>
+
+        <!-- Right: User Info -->
+        <div class="header-right">
+            <template if:true={isLoggedIn}>
+                <span class="user-info">Welcome, {userName}</span>
+                <lightning-button
+                    variant="neutral"
+                    label="Logout"
+                    onclick={handleLogout}
+                    class="logout-btn">
+                </lightning-button>
+            </template>
+        </div>
+    </header>
+</template>
